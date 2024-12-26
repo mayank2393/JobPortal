@@ -9,7 +9,6 @@ dotenv.config({});
 
 const app = express();
 
-// middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -22,11 +21,7 @@ app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 5000;
 
-
-// api's
 app.use("/api/v1", appRouter);
-
-
 
 app.listen(PORT, () => {
     connectDB();
