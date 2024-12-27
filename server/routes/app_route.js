@@ -1,8 +1,8 @@
 import express from "express";
-import {applicationRouter} from "./application.js";
-import {userRouter} from "./user.js";
-import {jobRouter} from "./job.js";
-import {companyRouter} from "./company.js";
+import applicationRouter from "./application.js";
+import userRouter from "./user.js";
+import jobRouter from "./job.js";
+import companyRouter from "./company.js";
 
 
 const router = express.Router();
