@@ -9,7 +9,7 @@ import axios from "axios";
 import { USER_API_END_POINT } from "../../utils/constant";
 import { toast } from "sonner";
 import { useDispatch, useSelector } from "react-redux";
-// import { setLoading } from "@/redux/authSlice";
+import { setLoading } from "@/redux/authSlice";
 import { Loader2 } from "lucide-react";
 import bg from "../../assets/bg-sn.png";
 
@@ -22,8 +22,8 @@ const Signup = () => {
     role: "",
     file: "",
   });
-  // const { loading, user } = useSelector((store) => store.auth);
-  // const dispatch = useDispatch();
+  const { loading, user } = useSelector((store) => store.auth);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const changeEventHandler = (e) => {
@@ -47,7 +47,7 @@ const Signup = () => {
     }
 
     try {
-    //   dispatch(setLoading(true));
+      dispatch(setLoading(true));
       const res = await axios.post(`${USER_API_END_POINT}/register`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
         withCredentials: true,
@@ -59,19 +59,18 @@ const Signup = () => {
     } catch (error) {
       console.log(error);
       toast.error(error.response.data.message);
-    } 
-    // finally {
-    //   dispatch(setLoading(false));
-    // }
+    } finally {
+      dispatch(setLoading(false));
+    }
   };
 
-  // useEffect(() => {
-  //   if (user) {
-  //     navigate("/");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, []);
 
-  const loading = false;
+  // const loading = false;
 
   return (
     <div

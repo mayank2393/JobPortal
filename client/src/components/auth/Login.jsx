@@ -9,9 +9,9 @@ import bg from "../../assets/bg-sn.png";
 import axios from "axios";
 import { USER_API_END_POINT } from "@/utils/constant";
 import { toast } from "sonner";
-// import { useDispatch, useSelector } from "react-redux";
-// import { setLoading, setUser } from "@/redux/authSlice";
-// import { Loader2 } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import { setLoading, setUser } from "@/redux/authSlice";
+import { Loader2 } from "lucide-react";
 
 const Login = () => {
   const [input, setInput] = useState({
@@ -19,9 +19,9 @@ const Login = () => {
     password: "",
     role: "",
   });
-  // const { loading, user } = useSelector((store) => store.auth);
+  const { loading, user } = useSelector((store) => store.auth);
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const changeEventHandler = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -30,7 +30,7 @@ const Login = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      // dispatch(setLoading(true));
+      dispatch(setLoading(true));
       const res = await axios.post(`${USER_API_END_POINT}/login`, input, {
         headers: {
           "Content-Type": "application/json",
@@ -38,25 +38,24 @@ const Login = () => {
         withCredentials: true,
       });
       if (res.data.success) {
-        // dispatch(setUser(res.data.user));
+        dispatch(setUser(res.data.user));
         navigate("/");
         toast.success(res.data.message);
       }
     } catch (error) {
       console.log(error);
       toast.error(error.response.data.message);
-    } 
-    // finally {
-    //   dispatch(setLoading(false));
-    // }
+    } finally {
+      dispatch(setLoading(false));
+    }
   };
-  // useEffect(() => {
-  //   if (user) {
-  //     navigate("/");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, []);
 
-  const loading = false;
+  // const loading = false;
   return (
     <div
       className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat overflow-y-hidden"
