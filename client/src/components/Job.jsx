@@ -4,8 +4,10 @@ import { Bookmark } from 'lucide-react'
 import { Avatar } from '@radix-ui/react-avatar'
 import { AvatarImage } from './ui/avatar'
 import { Badge } from './ui/badge'
+import { useNavigate } from "react-router-dom";
 
 const Job = ({job}) => {
+  const navigate = useNavigate();
   return (
     <div className="p-5 rounded-md shadow-xl bg-white border border-gray-100">
       <div className="flex items-center justify-between">
