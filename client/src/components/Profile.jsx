@@ -7,27 +7,27 @@ import { Badge } from "./ui/badge";
 import { Label } from "./ui/label";
 import AppliedJobTable from "./AppliedJobTable";
 import UpdateProfileDialog from "./UpdateProfileDialog";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 // import useGetAppliedJobs from "@/hooks/useGetAppliedJobs";
 
-const skills = ["Html", "Css", "Javascript", "Reactjs"]
+// const skills = ["Html", "Css", "Javascript", "Reactjs"]
 const isResume = true;
 
-const user = {
-  fullname: "John Doe",
-  email: "test@gmail.com",
-  profile:{
-    bio: "I am a full stack developer",
-    skills:["Html", "Css", "Javascript", "Reactjs"],
-    resume: "https://www.google.com",
-    resumeOriginalName: "Resume.pdf"
-  },
-  phoneNumber: "1234567890",
-}
+// const user = {
+//   fullname: "John Doe",
+//   email: "test@gmail.com",
+//   profile:{
+//     bio: "I am a full stack developer",
+//     skills:["Html", "Css", "Javascript", "Reactjs"],
+//     resume: "https://www.google.com",
+//     resumeOriginalName: "Resume.pdf"
+//   },
+//   phoneNumber: "1234567890",
+// }
 const Profile = () => {
   // useGetAppliedJobs();
   const [open, setOpen] = useState(false);
-  // const { user } = useSelector((store) => store.auth);
+  const { user } = useSelector((store) => store.auth);
 
   return (
     <div>

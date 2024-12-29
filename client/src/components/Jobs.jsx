@@ -5,160 +5,26 @@ import Job from "./Job";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 
-const jobsArray = [1, 2, 3, 4, 5, 6, 7, 8];
-const allJobs = [
-  {
-    _id: 1,
-    company: { name: "Google" },
-    title: "Software Engineer",
-    description: "Enjoying this work",
-    position: "SDE1",
-    jobType: "IT",
-    salary: "50",
-  },
-  {
-    _id: 2,
-    company: { name: "Amazon" },
-    title: "Software Engineer",
-    description: "Enjoying this work",
-    position: "SDE1",
-    jobType: "IT",
-    salary: "30",
-  },
-  {
-    _id: 3,
-    company: { name: "Facebook" },
-    title: "Software Engineer",
-    description: "Enjoying this work",
-    position: "SDE1",
-    jobType: "IT",
-    salary: "40",
-  },
-  {
-    _id: 4,
-    company: { name: "Microsoft" },
-    title: "Software Engineer",
-    description: "Enjoying this work",
-    position: "SDE1",
-    jobType: "IT",
-    salary: "45",
-  },
-  {
-    _id: 5,
-    company: { name: "Apple" },
-    title: "Software Engineer",
-    description: "Enjoying this work",
-    position: "SDE1",
-    jobType: "IT",
-    salary: "55",
-  },
-  {
-    _id: 6,
-    company: { name: "Tesla" },
-    title: "Software Engineer",
-    description: "Enjoying this work",
-    position: "SDE1",
-    jobType: "IT",
-    salary: "20",
-  },
-  {
-    _id: 7,
-    company: { name: "Google" },
-    title: "Software Engineer",
-    description: "Enjoying this work",
-    position: "SDE1",
-    jobType: "IT",
-    salary: "50",
-  },
-  {
-    _id: 8,
-    company: { name: "Amazon" },
-    title: "Software Engineer",
-    description: "Enjoying this work",
-    position: "SDE1",
-    jobType: "IT",
-    salary: "30",
-  },
-  {
-    _id: 9,
-    company: { name: "Facebook" },
-    title: "Software Engineer",
-    description: "Enjoying this work",
-    position: "SDE1",
-    jobType: "IT",
-    salary: "40",
-  },
-  {
-    _id: 10,
-    company: { name: "Microsoft" },
-    title: "Software Engineer",
-    description: "Enjoying this work",
-    position: "SDE1",
-    jobType: "IT",
-    salary: "45",
-  },
-  {
-    _id: 11,
-    company: { name: "Apple" },
-    title: "Software Engineer",
-    description: "Enjoying this work",
-    position: "SDE1",
-    jobType: "IT",
-    salary: "55",
-  },
-  {
-    _id: 12,
-    company: { name: "Tesla" },
-    title: "Software Engineer",
-    description: "Enjoying this work",
-    position: "SDE1",
-    jobType: "IT",
-    salary: "20",
-  },
-  {
-    _id: 13,
-    company: { name: "Google" },
-    title: "Software Engineer",
-    description: "Enjoying this work",
-    position: "SDE1",
-    jobType: "IT",
-    salary: "50",
-  },
-  {
-    _id: 14,
-    company: { name: "Amazon" },
-    title: "Software Engineer",
-    description: "Enjoying this work",
-    position: "SDE1",
-    jobType: "IT",
-    salary: "30",
-  },
-  {
-    _id: 15,
-    company: { name: "Facebook" },
-    title: "Software Engineer",
-    description: "Enjoying this work",
-    position: "SDE1",
-  }
-];
+// const jobsArray = [1, 2, 3, 4, 5, 6, 7, 8];
+
 const Jobs = () => {
-//   const { allJobs, searchedQuery } = useSelector((store) => store.job);
+  const { allJobs, searchedQuery } = useSelector((store) => store.job);
   const [filterJobs, setFilterJobs] = useState(allJobs);
 
-//   useEffect(() => {
-//     if (searchedQuery) {
-//       const filteredJobs = allJobs.filter((job) => {
-//         return (
-//           job.title.toLowerCase().includes(searchedQuery.toLowerCase()) ||
-//           job.description.toLowerCase().includes(searchedQuery.toLowerCase()) ||
-//           job.location.toLowerCase().includes(searchedQuery.toLowerCase())
-//         );
-//       });
-//       setFilterJobs(filteredJobs);
-//     } else {
-//       setFilterJobs(allJobs);
-//     }
-//   }, [allJobs, searchedQuery]);
+  useEffect(() => {
+    if (searchedQuery) {
+      const filteredJobs = allJobs.filter((job) => {
+        return (
+          job.title.toLowerCase().includes(searchedQuery.toLowerCase()) ||
+          job.description.toLowerCase().includes(searchedQuery.toLowerCase()) ||
+          job.location.toLowerCase().includes(searchedQuery.toLowerCase())
+        );
+      });
+      setFilterJobs(filteredJobs);
+    } else {
+      setFilterJobs(allJobs);
+    }
+  }, [allJobs, searchedQuery]);
 
   return (
     <div>
