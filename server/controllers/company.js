@@ -35,8 +35,7 @@ export const registerCompany = async (req, res) => {
 
 export const getCompany = async (req, res) => {
     try {
-        const companyId = req.id; 
-        const companies = await Company.find({ companyId });
+        const companies = await Company.find({});
         if (!companies) {
             return res.status(404).json({
                 message: "Companies not found.",
@@ -106,3 +105,4 @@ export const updateCompany = async (req, res) => {
         });
     }
 };
+ 

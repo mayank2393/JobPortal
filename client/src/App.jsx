@@ -8,6 +8,10 @@ import Profile from "./components/Profile.jsx";
 import JobDescription from "./components/JobDescription.jsx";
 import useGetAllJobs from "./hooks/useGetAllJobs.jsx";
 import Companies from "./components/admin/Companies.jsx";
+import CompanyCreate from "./components/admin/CompanyCreate.jsx";
+import CompanySetup from "./components/admin/CompanySetup.jsx";
+import AdminJobs from "./components/admin/AdminJobs.jsx";
+import PostJob from "./components/admin/PostJob.jsx";
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -22,27 +26,43 @@ const appRouter = createBrowserRouter([
     element: <Signup />,
   },
   {
-    path:"/jobs",
-    element:<Jobs/>
+    path: "/jobs",
+    element: <Jobs />,
   },
   {
     path: "/browse",
-    element:<Browse/>
+    element: <Browse />,
   },
   {
     path: "/profile",
-    element:<Profile/>
+    element: <Profile />,
   },
   {
     path: "/description/:id",
-    element:<JobDescription/>
+    element: <JobDescription />,
   },
 
   // admin routes
   {
-    path:"/admin/companies",
-    element:<Companies/>
-  }
+    path: "/admin/companies",
+    element: <Companies />,
+  },
+  {
+    path: "/admin/companies/create",
+    element: <CompanyCreate />,
+  },
+  {
+    path: "/admin/companies/:id",
+    element: <CompanySetup />,
+  },
+  {
+    path: "/admin/jobs",
+    element: <AdminJobs />,
+  },
+  {
+    path: "/admin/jobs/create",
+    element: <PostJob />,
+  },
 ]);
 function App() {
   useGetAllJobs();
