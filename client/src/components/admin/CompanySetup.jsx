@@ -37,10 +37,10 @@ const CompanySetup = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("name", input.name);
-    formData.append("description", input.description);
-    formData.append("website", input.website);
-    formData.append("location", input.location);
+    formData.append("name", input?.name);
+    formData.append("description", input?.description);
+    formData.append("website", input?.website);
+    formData.append("location", input?.location);
     if (input.file) {
       formData.append("file", input.file);
     }
@@ -70,83 +70,94 @@ const CompanySetup = () => {
 
   useEffect(() => {
     setInput({
-      name: singleCompany.name || "",
-      description: singleCompany.description || "",
-      website: singleCompany.website || "",
-      location: singleCompany.location || "",
-      file: singleCompany.file || null,
+      name: singleCompany?.name || "",
+      description: singleCompany?.description || "",
+      website: singleCompany?.website || "",
+      location: singleCompany?.location || "",
+      file: singleCompany?.file || null,
     });
   }, [singleCompany]);
 
   return (
     <div>
       <Navbar />
-      <div className="max-w-xl mx-auto my-10">
+      <div className="max-w-4xl mx-auto my-10 bg-white p-8 shadow-lg rounded-lg">
         <form onSubmit={submitHandler}>
-          <div className="flex items-center gap-5 p-8">
+          <div className="flex items-center gap-5 mb-6">
             <Button
               onClick={() => navigate("/admin/companies")}
               variant="outline"
-              className="flex items-center gap-2 text-gray-500 font-semibold"
+              className="flex items-center gap-2 text-gray-500 font-semibold hover:bg-gray-100"
             >
               <ArrowLeft />
               <span>Back</span>
             </Button>
-            <h1 className="font-bold text-xl">Company Setup</h1>
+            <h1 className="font-semibold text-2xl text-gray-800">
+              Company Setup
+            </h1>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <Label>Company Name</Label>
+              <Label className="text-gray-700">Company Name</Label>
               <Input
                 type="text"
                 name="name"
-                value={input.name}
+                value={input?.name}
                 onChange={changeEventHandler}
+                className="mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
               />
             </div>
             <div>
-              <Label>Description</Label>
+              <Label className="text-gray-700">Description</Label>
               <Input
                 type="text"
                 name="description"
-                value={input.description}
+                value={input?.description}
                 onChange={changeEventHandler}
+                className="mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
               />
             </div>
             <div>
-              <Label>Website</Label>
+              <Label className="text-gray-700">Website</Label>
               <Input
                 type="text"
                 name="website"
-                value={input.website}
+                value={input?.website}
                 onChange={changeEventHandler}
+                className="mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
               />
             </div>
             <div>
-              <Label>Location</Label>
+              <Label className="text-gray-700">Location</Label>
               <Input
                 type="text"
                 name="location"
-                value={input.location}
+                value={input?.location}
                 onChange={changeEventHandler}
+                className="mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
               />
             </div>
             <div>
-              <Label>Logo</Label>
+              <Label className="text-gray-700">Logo</Label>
               <Input
                 type="file"
                 accept="image/*"
                 onChange={changeFileHandler}
+                className="mt-2 px-4 py-2 border border-gray-300 rounded-lg"
               />
             </div>
           </div>
+
           {loading ? (
-            <Button className="w-full my-4">
-              {" "}
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please wait{" "}
+            <Button className="my-4 py-2 px-6 bg-gray-500 text-white rounded-lg flex items-center justify-center">
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please wait
             </Button>
           ) : (
-            <Button type="submit" className="w-full my-4">
+            <Button
+              type="submit"
+              className="mt-6 py-2 px-6 bg-[#F83002] hover:bg-[#e1360f] text-white rounded-lg transition-all mx-auto block"
+            >
               Update
             </Button>
           )}

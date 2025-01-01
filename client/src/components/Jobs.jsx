@@ -31,15 +31,20 @@ const Jobs = () => {
       <Navbar />
       <div className="max-w-7xl mx-auto mt-5">
         <div className="flex gap-5">
-          <div className="w-20%">
+          {/* Sidebar - Filter Card */}
+          <div className="w-full md:w-1/4 lg:w-1/5 bg-white p-5 rounded-lg shadow-lg">
             <FilterCard />
           </div>
+
+          {/* Main Content - Job Listings */}
           {filterJobs.length <= 0 ? (
-            <span>Job not found</span>
+            <div className="flex-1 flex items-center justify-center text-xl text-gray-500">
+              <span>Job not found</span>
+            </div>
           ) : (
-            <div className="flex-1 h-[88vh] overflow-y-auto pb-5">
-              <div className="grid grid-cols-3 gap-4">
-                {filterJobs.map((job,index) => (
+            <div className="flex-1 h-[88vh] overflow-y-auto pb-5 max-w-[90%] custom-scrollbar">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {filterJobs.map((job, index) => (
                   <motion.div
                     initial={{ opacity: 0, x: 100 }}
                     animate={{ opacity: 1, x: 0 }}

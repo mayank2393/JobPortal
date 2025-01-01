@@ -35,44 +35,64 @@ const CompaniesTable = () => {
     setFilterCompany(filteredCompany);
   }, [companies, searchCompanyByText]);
   return (
-    <div>
-      <Table>
-        <TableCaption>A list of your recent registered companies</TableCaption>
+    <div className="overflow-x-auto bg-gray-50 p-6 rounded-lg shadow-md">
+      <Table className="w-full border-collapse">
+        <TableCaption className="text-gray-600 font-medium text-sm">
+          A list of your recently registered companies
+        </TableCaption>
         <TableHeader>
-          <TableRow>
-            <TableHead>Logo</TableHead>
-            <TableHead>Name</TableHead>
-            <TableHead>Date</TableHead>
-            <TableHead className="text-right">Action</TableHead>
+          <TableRow className="bg-gray-100">
+            <TableHead className="py-3 px-4 text-left text-gray-700 font-semibold">
+              Logo
+            </TableHead>
+            <TableHead className="py-3 px-4 text-left text-gray-700 font-semibold">
+              Name
+            </TableHead>
+            <TableHead className="py-3 px-4 text-left text-gray-700 font-semibold">
+              Date
+            </TableHead>
+            <TableHead className="py-3 px-4 text-right text-gray-700 font-semibold">
+              Action
+            </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {filterCompany?.map((company) => (
-            <tr>
-              <TableCell>
-                <Avatar className="flex items-center justify-center w-10 h-10 rounded-full overflow-hidden bg-gray-100">
+            <tr
+              key={company._id}
+              className="hover:bg-gray-100 transition duration-200"
+            >
+              <TableCell className="py-3 px-4">
+                <Avatar className="flex items-center justify-center w-12 h-12 rounded-full overflow-hidden bg-gray-200 shadow-sm">
                   <AvatarImage
                     src={company.logo}
+                    alt={company.name}
                     className="w-full h-full object-cover object-center"
                   />
                 </Avatar>
               </TableCell>
-              <TableCell>{company.name}</TableCell>
-              <TableCell>{company.createdAt?.split("T")[0]}</TableCell>
-              <TableCell className="text-right cursor-pointer">
+              <TableCell className="py-3 px-4 text-sm text-gray-600">
+                {company.name}
+              </TableCell>
+              <TableCell className="py-3 px-4 text-sm text-gray-600">
+                {company.createdAt?.split("T")[0]}
+              </TableCell>
+              <TableCell className="py-3 px-4 text-right">
                 <Popover>
-                  <PopoverTrigger>
+                  <PopoverTrigger className="cursor-pointer hover:text-gray-700 transition duration-200">
                     <MoreHorizontal />
                   </PopoverTrigger>
-                  <PopoverContent className="w-32">
+                  <PopoverContent className="w-40 bg-white shadow-lg rounded-lg p-4">
                     <div
                       onClick={() =>
                         navigate(`/admin/companies/${company._id}`)
                       }
-                      className="flex items-center gap-2 w-fit cursor-pointer"
+                      className="flex items-center gap-2 p-2 cursor-pointer hover:bg-gray-100 rounded-md transition duration-200"
                     >
-                      <Edit2 className="w-4" />
-                      <span>Edit</span>
+                      <Edit2 className="w-4 text-gray-700" />
+                      <span className="text-sm font-medium text-gray-700">
+                        Edit
+                      </span>
                     </div>
                   </PopoverContent>
                 </Popover>

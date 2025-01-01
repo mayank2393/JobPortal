@@ -9,46 +9,12 @@ import {
   TableRow,
 } from "./ui/table";
 import { Badge } from "./ui/badge";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-const allAppliedJobs = [
-    {
-        _id: "1",
-        createdAt: "2021-09-01T00:00:00.000Z",
-        status: "pending",
-        job: {
-            title: "Frontend Developer",
-            company: {
-                name: "Google"
-            }
-        }
-    },
-    {
-        _id: "2",
-        createdAt: "2021-09-02T00:00:00.000Z",
-        status: "approved",
-        job: {
-            title: "Backend Developer",
-            company: {
-                name: "Facebook"
-            }
-        }
-    },
-    {
-        _id: "3",
-        createdAt: "2021-09-03T00:00:00.000Z",
-        status: "rejected",
-        job: {
-            title: "Fullstack Developer",
-            company: {
-                name: "Amazon"
-            }
-        }
-    }
-]
+
 
 const AppliedJobTable = () => {
-//   const { allAppliedJobs } = useSelector((store) => store.job);
+  const { allAppliedJobs } = useSelector((store) => store.job);
   return (
     <div>
       <Table>

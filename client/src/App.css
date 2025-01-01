@@ -40,3 +40,27 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;  /* Change this to adjust the width */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Light gray background */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #888;  /* Color of the scrollbar thumb */
+  border-radius: 10px;
+  border: 2px solid #fff;  /* Optional: adds border around the thumb */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  /* Darker color on hover */
+}
+
+.custom-scrollbar::-webkit-scrollbar-corner {
+  background-color: transparent; /* Removes the corner square */
+}
