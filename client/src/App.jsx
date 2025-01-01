@@ -15,7 +15,7 @@ import PostJob from "./components/admin/PostJob.jsx";
 import Applicants from "./components/admin/Applicants.jsx";
 import ProtectedRoute from "./components/admin/ProtectedRoute.jsx";
 import NotFound from "./components/NotFound.jsx";
-import AuthProtectedRoute from "./components/AuthProtectedRoute.jsx";
+// import AuthProtectedRoute from "./components/AuthProtectedRoute.jsx";
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -44,9 +44,9 @@ const appRouter = createBrowserRouter([
   {
     path: "/description/:id",
     element: (
-      <AuthProtectedRoute>
+      // <AuthProtectedRoute>
         <JobDescription />
-      </AuthProtectedRoute>
+      // </AuthProtectedRoute>
     ),
   },
 
