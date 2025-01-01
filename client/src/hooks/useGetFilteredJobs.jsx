@@ -1,4 +1,4 @@
-import { setAllJobs } from "@/redux/jobSlice";
+import { setFilteredJobs } from "@/redux/jobSlice";
 import { JOB_API_END_POINT } from "../utils/constant";
 import axios from "axios";
 import { useEffect } from "react";
@@ -15,7 +15,7 @@ const useGetFilteredJobs = () => {
           { withCredentials: true }
         );
         if (res.data.success) {
-          dispatch(setAllJobs(res.data.jobs));
+          dispatch(setFilteredJobs(res.data.jobs));
         }
       } catch (error) {
         console.log(error);
