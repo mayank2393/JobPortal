@@ -55,7 +55,7 @@ This job portal website allows job seekers to browse job listings and apply for 
   npm install
 ```
 2. create a .env file in the server folder and define the necessary environment variables:
-  ```bash
+  ```env
   JWT_SECRET_KEY=your_secret_key
   MONGODB_URI=your_mongodb_connection_string
   PORT=5000
