@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 const corsOptions = {
-    origin: 'https://job-portal-teal-seven.vercel.appcd',
+    origin: 'https://job-portal-teal-seven.vercel.app',
     credentials: true
 }
 
