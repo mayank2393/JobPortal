@@ -13,9 +13,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 const corsOptions = {
-    origin: '*',
-    credentials: true
-}
+    origin: (origin, callback) => {
+        // Allow all origins
+        callback(null, true);
+    },
+    credentials: true, // Allow cookies and credentials
+};
 
 app.use(cors(corsOptions));
 
