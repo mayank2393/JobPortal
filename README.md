@@ -147,9 +147,41 @@ Make sure to configure the backend with the necessary environment variables in a
 JWT_SECRET_KEY=your_secret_key
 MONGODB_URI=your_mongodb_connection_string
 PORT=5000
-CLOUD_NAME=your_cloud_name
+CLOUD_NAME=your_cloudinary_cloud_name
 API_KEY=your_api_key
 API_SECRET=your_api_secret
+```
+## Contributing
+
+Feel free to fork the repository, create a new branch, and submit a pull request for improvements or bug fixes. Please ensure that you:
+
+- Write tests for any new features or changes.
+- Provide documentation for any new functionality or changes to existing features.
+- Follow the code style and conventions used in the project.
+- Ensure that your changes do not break existing functionality.
+
+To contribute:
+
+1. Fork the repository
+2. Clone your fork:
+   ```bash
+   git clone https://github.com/your-username/job-portal.git
+3. Make Your Changes
+
+Make the necessary changes, such as fixing bugs, adding new features, or improving documentation. Once done, ensure everything works by running the development server:
+
+```bash
+npm run dev
+```
+3. Commit your changes:
+   ```bash
+       git commit -m "Description of your changes"
+    ```
+4.Push your changes to your fork:
+```bash
+git push origin your-feature-branch
+```
+5.Open a pull request to the main repository with a clear description of your changes.
 
 
 
